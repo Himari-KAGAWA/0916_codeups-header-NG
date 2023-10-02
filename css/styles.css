@@ -1,0 +1,274 @@
+@charset "UTF-8";
+html {
+  font-size: 10px;
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 0.9090909091vw;
+  }
+}
+@media (min-width: 1100px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul,
+ol {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul,
+ol {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+  width: 100%;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Blur images when they have no alt attribute */
+img:not([alt]) {
+  filter: blur(10px);
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* フォームリセット */
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font: inherit;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  display: none;
+}
+
+input[type=submit],
+input[type=button],
+label,
+button,
+select {
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.c-hamburger {
+  z-index: 9999;
+}
+@media screen and (min-width: 768px) {
+  .c-hamburger {
+    display: none;
+  }
+}
+
+.c-hamburger span {
+  position: relative;
+  display: block;
+  height: 2px;
+  width: 22px;
+  background: #fff;
+  transition: ease 0.3s;
+}
+
+.c-hamburger span:nth-child(1) {
+  top: 0;
+}
+
+.c-hamburger span:nth-child(2) {
+  margin: 4px 0;
+}
+
+.c-hamburger span:nth-child(3) {
+  top: 0;
+}
+
+/*is-OPEN時の動き*/
+.c-hamburger.is-open span:nth-child(1) {
+  top: 5px;
+  transform: rotate(45deg);
+}
+
+.c-hamburger.is-open span:nth-child(2) {
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.c-hamburger.is-open span:nth-child(3) {
+  top: -7px;
+  transform: rotate(-45deg);
+}
+
+.test {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .test {
+    display: block;
+    padding: 10px;
+    margin: 0 auto;
+    color: #f00;
+    background-color: #000;
+    text-align: center;
+    font-size: 13.9rem;
+  }
+}
+
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 8888;
+}
+
+.p-header {
+  background-color: #000;
+  height: 5rem;
+}
+
+.p-header__inner {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.2rem;
+}
+
+.c-logo {
+  width: 7rem;
+  position: relative;
+  z-index: 9999;
+}
+@media screen and (min-width: 768px) {
+  .c-logo {
+    width: 9.5rem;
+  }
+}
+
+.p-sp-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  width: 100%;
+  height: 100vh;
+  z-index: 8888;
+  transform: translateX(-100%);
+  transition: transform 1s ease 0s;
+}
+@media screen and (min-width: 768px) {
+  .p-sp-nav {
+    display: none;
+  }
+}
+
+.p-sp-nav.is-open {
+  transform: translateX(0);
+}
+
+.p-sp-nav__items {
+  height: 100vh;
+  padding-top: 25rem;
+  padding-bottom: 20rem;
+  overflow: scroll;
+}
+
+.p-sp-nav__item a {
+  display: block;
+  width: 100%;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  color: #fff;
+  font-size: 1.6rem;
+  text-align: center;
+}
