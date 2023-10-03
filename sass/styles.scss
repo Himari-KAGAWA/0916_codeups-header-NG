@@ -36,6 +36,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 2.2rem;
+  @include mq("md") {
+    padding-left: 3.2rem;
+    padding-right: 0;
+  }
 }
 
 .c-logo {
@@ -49,7 +53,7 @@
 
 .p-sp-nav {
   // display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -89,3 +93,51 @@
   font-size: 1.6rem;
   text-align: center;
 }
+
+// height: inherit;を付ける理由は、リンクのクリック領域を広げるため
+.p-pc-nav {
+  height: inherit;
+  display: none;
+  @include mq("md") {
+    display: block;
+  }
+}
+
+.p-pc-nav__items {
+  height: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.p-pc-nav__item {
+  height: inherit;
+}
+
+// セレクタについて１：スペースを空ける場合は子要素
+.p-pc-nav__item a {
+  height: inherit;
+  color: #fff;
+  // inline要素なので高さを確保できないので、以下のやり方で高さを出しクリック領域を確保
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // やり方その２(左右の中央にも寄る)
+  display: grid;
+  place-items: center;
+  padding: 0 1.6rem;
+  font-size: 1.6rem;
+}
+
+// セレクタについて２：.でつなぐ場合は同列のクラス
+.p-pc-nav__item.p-pc-nav__item--white {
+  margin-left: 1.6rem;
+}
+
+.p-pc-nav__item.p-pc-nav__item--white a {
+  background-color: #fff;
+  color: #333;
+  padding: 0 3.2rem;
+}
+
+// セレクタについて３：長くなっても略さないこと！（略すとどこにあたってるから）
+// -whiteではなくp-pc-nav__item--whiteと書く
